@@ -26,8 +26,8 @@ def send_habit_reminders():
         # Проверка времени (с запасом 5 минут)
         habit_time = habit.time
         time_diff = abs(
-            (now.hour * 60 + now.minute) -
-            (habit_time.hour * 60 + habit_time.minute)
+            (now.hour * 60 + now.minute)
+            - (habit_time.hour * 60 + habit_time.minute)
         )
         if time_diff > 5:
             continue

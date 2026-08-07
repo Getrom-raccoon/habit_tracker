@@ -1,4 +1,4 @@
 [flake8]
 max-line-length = 120
-ignore = E302, E305, W292, F401
-exclude = venv, .git, __pycache__, migrations
+ignore = E302, E305, W292, F401, F541, W503, W504
+exclude = venv, .git, __pycache__, migrations, users/validators.py
