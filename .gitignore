@@ -14,3 +14,8 @@ staticfiles/
 coverage/
 htmlcov/
 .pytest_cache/
+postgres_data/
+redis_data/
+.coverage
+celerybeat-schedule*
+ngrok-*.zip*
