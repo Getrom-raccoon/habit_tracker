@@ -60,6 +60,7 @@ jobs:
           SECRET_KEY: ${{ secrets.SECRET_KEY }}
           CORS_ALLOWED_ORIGINS: "http://localhost:8000,http://127.0.0.1:8000"
         run: |
+          python manage.py makemigrations users
           python manage.py migrate
 
       - name: Run tests
@@ -73,6 +74,8 @@ jobs:
           REDIS_PORT: 6379
           SECRET_KEY: ${{ secrets.SECRET_KEY }}
         run: |
+          python manage.py makemigrations
+          python manage.py migrate
           coverage run manage.py test
           coverage report
 
