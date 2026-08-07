@@ -65,18 +65,9 @@ jobs:
 
       - name: Run tests
         env:
-          DB_NAME: test_db
-          DB_USER: test_user
-          DB_PASSWORD: test_pass
-          DB_HOST: localhost
-          DB_PORT: 5432
-          REDIS_HOST: localhost
-          REDIS_PORT: 6379
+          DB_ENGINE: django.db.backends.sqlite3
           SECRET_KEY: ${{ secrets.SECRET_KEY }}
         run: |
-          python manage.py migrate users zero
-          python manage.py makemigrations users
-          python manage.py migrate users
           python manage.py migrate
           coverage run manage.py test
           coverage report
