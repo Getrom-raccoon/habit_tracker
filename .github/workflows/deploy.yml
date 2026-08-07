@@ -57,6 +57,7 @@ jobs:
           DB_PASSWORD: test_pass
           DB_HOST: localhost
           DB_PORT: 5432
+          SECRET_KEY: ${{ secrets.SECRET_KEY }}
         run: |
           python manage.py migrate
 
@@ -69,6 +70,7 @@ jobs:
           DB_PORT: 5432
           REDIS_HOST: localhost
           REDIS_PORT: 6379
+          SECRET_KEY: ${{ secrets.SECRET_KEY }}
         run: |
           coverage run manage.py test
           coverage report
