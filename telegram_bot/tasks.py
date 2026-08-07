@@ -24,10 +24,9 @@ def send_habit_reminders():
             continue
 
         # Проверка времени (с запасом 5 минут)
-        habit_time = habit.time
         time_diff = abs(
-            (now.hour * 60 + now.minute) -
-            (habit_time.hour * 60 + habit_time.minute)
+            (now.hour * 60 + now.minute)
+            - (habit_time.hour * 60 + habit_time.minute)
         )
         if time_diff > 5:
             continue
@@ -36,7 +35,7 @@ def send_habit_reminders():
         if not user.telegram_chat_id:
             continue
 
-        message = f"Напоминание о привычке!\n\n"
+        message = "Напоминание о привычке!\n\n"
         message += f"Действие: {habit.action}\n"
         message += f"Место: {habit.place}\n"
         message += f"Время: {habit.time.strftime('%H:%M')}\n"
