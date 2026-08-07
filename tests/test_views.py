@@ -9,7 +9,7 @@ User = get_user_model()
 
 class HabitAPITest(APITestCase):
     def setUp(self):
-        self.user = User.objects.create_user(email='user@test.com', password='pass123')
+        self.user = User.objects.create_user(email='test@test.com', password='test123', username=None)
         self.client.force_authenticate(user=self.user)
 
     def test_create_habit(self):

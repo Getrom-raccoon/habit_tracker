@@ -8,7 +8,7 @@ User = get_user_model()
 
 class HabitModelTest(TestCase):
     def setUp(self):
-        self.user = User.objects.create_user(email='test@test.com', password='test123')
+        self.user = User.objects.create_user(email='test@test.com', password='test123', username=None)
 
     def test_valid_habit_creation(self):
         habit = Habit.objects.create(
