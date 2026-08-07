@@ -74,9 +74,9 @@ jobs:
           REDIS_PORT: 6379
           SECRET_KEY: ${{ secrets.SECRET_KEY }}
         run: |
-          python manage.py flush --noinput
+          python manage.py migrate users zero
           python manage.py makemigrations users
-          python manage.py migrate users --fake  # если нужно сбросить фейковые миграции
+          python manage.py migrate users
           python manage.py migrate
           coverage run manage.py test
           coverage report
