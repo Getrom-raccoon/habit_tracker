@@ -7,7 +7,7 @@ on:
       - develop
   pull_request:
     branches:
-      - main
+      - develop
 
 jobs:
   test:
@@ -88,7 +88,7 @@ jobs:
 
       - name: Build Docker images
         run: |
-          docker-compose build
+          docker compose build
 
   deploy:
     needs: build
@@ -115,8 +115,9 @@ jobs:
           key: ${{ secrets.SERVER_SSH_KEY }}
           port: ${{ secrets.SERVER_PORT }}
           script: |
-            cd /opt/habit_tracker 
-            docker-compose down
-            docker-compose build
-            docker-compose up -d
+            cd /opt/lms
+            docker compose down
+            docker compose build
+            docker compose up -d
+            docker compose exec -T web python manage.py migrate
             docker system prune -f
