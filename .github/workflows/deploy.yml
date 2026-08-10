@@ -107,7 +107,7 @@ jobs:
           SOURCE: ./
           TARGET: /opt/habit_tracker
 
-      name: Execute remote commands
+      - name: Execute remote commands
         uses: appleboy/ssh-action@v1
         with:
           host: ${{ secrets.SERVER_HOST }}
